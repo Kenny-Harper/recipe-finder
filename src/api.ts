@@ -47,7 +47,7 @@ export async function getCategories(): Promise<string[]> {
   const response = await fetch(`${BASE_URL}/categories.php`);
   if (!response.ok) throw new Error('Failed to fetch categories');
   const data: CategoryResponse = await response.json();
-  return data.categories.map((c) => c.strCategory);
+  return data.categories.map((c: Category) => c.strCategory);
 }
 
 // extract ingredients from a meal object

@@ -1,6 +1,6 @@
 // api.ts — all functions that talk to TheMealDB API
 // keeping API calls in one file makes them easy to find and change
-import type { MealSearchResponse, CategoryResponse, Meal } from './types';
+import type { MealSearchResponse, CategoryResponse, Category, Meal } from './types';
 
 // base URL for TheMealDB API — free tier, no API key needed
 const BASE_URL = 'https://www.themealdb.com/api/json/v1/1';

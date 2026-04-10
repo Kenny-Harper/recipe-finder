@@ -3,7 +3,7 @@
 A recipe search app built with React, TypeScript and Vite using the free TheMealDB API to search and browse thousands of real recipes from around the world.
 
 ## Live Demo
-Coming soon
+https://kenny-harper-recipe-finder.netlify.app
 
 ## Features
 - Search recipes by name e.g. "chicken", "pasta"

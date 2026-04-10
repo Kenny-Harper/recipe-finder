@@ -5,28 +5,11 @@ function RecipeModal({ meal, onClose, isFavourite, onToggleFavourite }: RecipeMo
   const ingredients = getIngredients(meal);
   const youtubeLink = meal['strYoutube'] as string;
 
-  function handleOverlayClick(e: React.MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
-    onClose();
-  }
-
-  function handleModalClick(e: React.MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
-  }
-
-  function handleClose(e: React.MouseEvent) {
-    e.preventDefault();
-    e.stopPropagation();
-    onClose();
-  }
-
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
-      <div className="modal" onClick={handleModalClick}>
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal" onClick={(e) => e.stopPropagation()}>
 
-        <button type="button" className="modal-close" onClick={handleClose}>✕</button>
+        <button type="button" className="modal-close" onClick={onClose}>✕</button>
 
         <div className="modal-header">
           <img src={meal.strMealThumb} alt={meal.strMeal} className="modal-image" />
@@ -39,11 +22,24 @@ function RecipeModal({ meal, onClose, isFavourite, onToggleFavourite }: RecipeMo
             <button
               type="button"
               className={`favourite-btn-large ${isFavourite ? 'active' : ''}`}
-              onClick={(e) => { e.stopPropagation(); onToggleFavourite(meal); }}
+              onClick={() => onToggleFavourite(meal)}
             >
               {isFavourite ? '❤️ Saved' : '🤍 Save Recipe'}
             </button>
-            {youtubeLink && <a href={youtubeLink} target="_blank" rel="noreferrer" className="youtube-link">▶ Watch on YouTube</a>}
+            {youtubeLink && (
+              
+                href={youtubeLink}
+                target="_blank"
+                rel="noreferrer"
+                className="youtube-link"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  window.open(youtubeLink, '_blank');
+                }}
+              >
+                ▶ Watch on YouTube ↗
+              </a>
+            )}
           </div>
         </div>
 

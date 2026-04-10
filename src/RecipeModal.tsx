@@ -5,6 +5,11 @@ function RecipeModal({ meal, onClose, isFavourite, onToggleFavourite }: RecipeMo
   const ingredients = getIngredients(meal);
   const youtubeLink = meal['strYoutube'] as string;
 
+  function handleYoutubeClick(e: React.MouseEvent) {
+    e.stopPropagation();
+    window.open(youtubeLink, '_blank');
+  }
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
@@ -27,18 +32,9 @@ function RecipeModal({ meal, onClose, isFavourite, onToggleFavourite }: RecipeMo
               {isFavourite ? '❤️ Saved' : '🤍 Save Recipe'}
             </button>
             {youtubeLink && (
-              
-                href={youtubeLink}
-                target="_blank"
-                rel="noreferrer"
-                className="youtube-link"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(youtubeLink, '_blank');
-                }}
-              >
+              <button type="button" className="youtube-link" onClick={handleYoutubeClick}>
                 ▶ Watch on YouTube ↗
-              </a>
+              </button>
             )}
           </div>
         </div>

@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+# 🍽️ Recipe Finder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A recipe search app built with React, TypeScript and Vite using the free TheMealDB API to search and browse thousands of real recipes from around the world.
 
-Currently, two official plugins are available:
+## Live Demo
+Coming soon
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
+- Search recipes by name e.g. "chicken", "pasta"
+- Browse by category — Beef, Chicken, Dessert, Vegetarian and more
+- Click any recipe to see full ingredients and instructions
+- Save favourite recipes that persist with localStorage
+- Quick category cards on the home screen
+- Home button to return to welcome screen from any view
+- Loading and error states handled gracefully
 
-## React Compiler
+## Tech Stack
+- React
+- TypeScript
+- Vite
+- TheMealDB API (free, no API key required)
+- CSS (custom styling)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## TypeScript Concepts Used
+- Interfaces for all API response shapes
+- Typed component props
+- Async/await with typed return values
+- import type for type-only imports
+- Union types and null safety
 
-## Expanding the ESLint configuration
+## React Concepts Used
+- useState for search, results, categories, modal and favourites
+- useEffect for API calls and localStorage sync
+- Async functions with try/catch/finally for error handling
+- Conditional rendering for loading, error and empty states
+- Props passing data and functions between components
+- localStorage persistence for favourites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Architecture
+- App.tsx — root component, holds all state and logic
+- RecipeCard.tsx — displays a single recipe in the grid
+- RecipeModal.tsx — full recipe details in a modal overlay
+- api.ts — all API calls to TheMealDB in one place
+- types.ts — all TypeScript interfaces in one place

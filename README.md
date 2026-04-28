@@ -42,3 +42,5 @@ https://kenny-harper-recipe-finder.netlify.app
 - RecipeModal.tsx — full recipe details in a modal overlay
 - api.ts — all API calls to TheMealDB in one place
 - types.ts — all TypeScript interfaces in one place
+
+<img width="846" height="825" alt="Screenshot 2026-04-28 at 10 17 08" src="https://github.com/user-attachments/assets/4adb535e-7f20-41a4-8356-9dc64e6c3db8" />

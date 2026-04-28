@@ -2,6 +2,7 @@
 
 <img width="846" height="825" alt="Screenshot 2026-04-28 at 10 17 08" src="https://github.com/user-attachments/assets/4adb535e-7f20-41a4-8356-9dc64e6c3db8" />
 
+## Intro
 A recipe search app built with React, TypeScript and Vite using the free TheMealDB API to search and browse thousands of real recipes from around the world.
 
 ## Live Demo
